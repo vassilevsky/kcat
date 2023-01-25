@@ -3,5 +3,6 @@ jobs:
   rpm:
     runs-on: ubuntu-latest
     steps:
+      - run: sudo yum install -y gcc librdkafka-devel zlib-devel
       - uses: actions/checkout@v3
       - run: rpmbuild -bb --build-in-place rpm/kcat.spec
