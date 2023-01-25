@@ -1,0 +1,6 @@
+on: push
+jobs:
+  rpm:
+    steps:
+      - uses: actions/checkout@v3
+      - run: rpmbuild -bb --build-in-place rpm/kcat.spec
