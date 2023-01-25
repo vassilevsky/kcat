@@ -2,7 +2,9 @@ on: push
 jobs:
   rpm:
     runs-on: ubuntu-latest
+    container:
+      image: centos:7
     steps:
-      - run: sudo apt install gcc librdkafka-devel zlib-devel
+      - run: yum install -y gcc librdkafka-devel zlib-devel rpmdevtools
       - uses: actions/checkout@v3
       - run: rpmbuild -bb --build-in-place rpm/kcat.spec
